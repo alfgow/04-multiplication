@@ -1,22 +1,27 @@
-import fs from 'fs';
+import fs from "fs";
+import { yarg } from "./config/plugins/yargs.plugin";
+console.log(yarg);
 
-const number = 5
-let outpuMessage = ''
+const { b, l, s } = yarg;
+const outputPath = "outputs";
+
+let outpuMessage = "";
 const headerMessage = `
 =========================
-     Tabla del ${number}
+     Tabla del ${b}
 =========================\n
-`
+`;
 
-for (let i = 1; i < 11; i++) {
-    outpuMessage += `${number} x ${i} = ${i * number}\n`;
+for (let i = 1; i <= l; i++) {
+	outpuMessage += `${b} x ${i} = ${i * b}\n`;
 }
 
-outpuMessage = headerMessage + outpuMessage
-console.log(outpuMessage)
+outpuMessage = headerMessage + outpuMessage;
 
-const outputPath = 'outputs'
+if (s) {
+	console.log(outpuMessage);
+}
 
-fs.mkdirSync(outputPath, { recursive: true })
-fs.writeFileSync(`${outputPath}/tabla-del-${number}.txt`, outpuMessage)
-console.log('file created');
+fs.mkdirSync(outputPath, { recursive: true });
+fs.writeFileSync(`${outputPath}/tabla-del-${b}.txt`, outpuMessage);
+console.log("file created");
