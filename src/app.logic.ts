@@ -3,7 +3,6 @@ import { yarg } from "./config/plugins/yargs.plugin";
 console.log(yarg);
 
 const { b, l, s } = yarg;
-const outputPath = "outputs";
 
 let outpuMessage = "";
 const headerMessage = `
@@ -22,6 +21,7 @@ if (s) {
 	console.log(outpuMessage);
 }
 
+const outputPath = "outputs";
 fs.mkdirSync(outputPath, { recursive: true });
 fs.writeFileSync(`${outputPath}/tabla-del-${b}.txt`, outpuMessage);
 console.log("file created");

@@ -2,6 +2,8 @@
 export interface CreateTableOptions{
     base: number;
     limit?: number;
+    destination?: string;
+    name?: string
 }
 
 export interface CreateTableUseCase{

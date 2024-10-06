@@ -20,6 +20,18 @@ export const yarg = yargs(hideBin(process.argv))
 		default: false,
 		describe: "show multiplication table",
 	})
+    .option("n",{
+        alias: "name",
+        type: "string",
+        default: "tabla-del-",
+        describe: "File Name"
+    })
+    .option("d",{
+        alias: "destination",
+        type: "string",
+        default: "outputs",
+        describe: "File destination"
+    })
 	.check((argv, options) => {
 		if (argv.b < 0) throw new Error("Base must be grater than 0");
 
