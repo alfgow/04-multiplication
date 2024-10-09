@@ -10,7 +10,7 @@ export const yarg = yargs(hideBin(process.argv))
 	})
 	.option("l", {
 		alias: "limit",
-		type: "number",
+		type: "number", 
 		default: 10,
 		describe: "Multiplicador table limit",
 	})
